@@ -6,13 +6,46 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Data Analyst Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="script.js" defer></script>
+  <style>
+    /* Custom animations */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    // Simple script to add fade-in animation on scroll
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll('section');
+      const options = {
+        root: null,
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      sections.forEach(section => {
+        section.classList.add('fade-in');
+        observer.observe(section);
+      });
+    });
+  </script>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
   <!-- Header -->
-  <header class="bg-indigo-600 text-white py-4">
+  <header class="bg-indigo-600 text-white py-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center px-4">
-        <h1 class="text-3xl font-bold">[Sunit Kumar Sahoo] - Data Analyst Intern</h1>
+      <h1 class="text-3xl font-bold">Sunit Kumar Sahoo - Data Analyst Intern</h1>
       <nav>
         <a href="#about" class="mx-2 hover:underline">About</a>
         <a href="#projects" class="mx-2 hover:underline">Projects</a>
@@ -28,7 +61,7 @@
   <section id="about" class="container mx-auto mt-8 px-4">
     <h2 class="text-2xl font-semibold mb-4">About Me</h2>
     <p class="bg-white p-6 rounded-lg shadow-lg">
-      I am a passionate data analyst with a strong foundation in data analytics tools and techniques. I have experience with Excel, SQL, Tableau, and Python for data analysis and visualization. I'm looking to apply my analytical skills in a professional setting to help businesses make data-driven decisions.
+      I am a passionate data analyst with a strong foundation in analytics tools and techniques. My experience with Excel, SQL, Tableau, and Python equips me to provide actionable insights that drive data-driven decisions.
     </p>
   </section>
 
@@ -36,28 +69,22 @@
   <section id="projects" class="container mx-auto mt-8 px-4">
     <h2 class="text-2xl font-semibold mb-4">Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-white shadow-lg p-6 rounded-lg">
+      <div class="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
         <h3 class="text-xl font-bold mb-2">Coffee Sales Data Analysis</h3>
         <p>
-          Analyzed sales data from multiple regions to uncover trends and insights. Created interactive MS-Excel dashboards to visualize key performance indicators.This Excel dashboard project provides insightful analysis of sales data 
-          for a coffee shop.Features to know briefly about this project by mentioning below like: total sales month wise and days wise, hours for sale, sales variation, 
-          total footfall, sales by category wise, average price per order, inventory 
-          management.
+          Analyzed sales data to uncover trends. Created interactive dashboards to visualize key performance indicators such as total sales, sales variation, footfall, and inventory management.
         </p>
       </div>
-      <div class="bg-white shadow-lg p-6 rounded-lg">
+      <div class="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
         <h3 class="text-xl font-bold mb-2">Customer Segmentation</h3>
         <p>
-          Used Python,SQL,Tableau and Excel to segment customers based on purchasing behavior and demographics, helping the marketing team target key customer segments.
+          Segmented customers based on purchasing behavior and demographics using Python, SQL, and Tableau, enabling targeted marketing strategies.
         </p>
       </div>
-      <div class="bg-white shadow-lg p-6 rounded-lg">
+      <div class="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
         <h3 class="text-xl font-bold mb-2">Tableau Sales Visualization</h3>
         <p>
-           It can visualized key metrics like sales, customer segmentation,market analysis etc to provide actionable insights.I aimed to make complex 
-         data easily digestible for decision maker.
-          It allows me to transform raw data into clear,intuitive visualizations and 
-         make data backed decision faster and more efficiently
+          Developed visualizations for sales and market analysis. Transformed raw data into clear, intuitive dashboards that facilitate quick, data-backed decisions.
         </p>
       </div>
     </div>
@@ -71,8 +98,7 @@
       <li>SQL for Data Querying</li>
       <li>Tableau for Data Visualization</li>
       <li>Python for Data Cleaning and Analysis</li>
-      <li>Pandas</li><li>Data Visualization</li>
-      <li>Numpy</li><li>Data Cleaning</li>
+      <li>Pandas and NumPy</li>
       <li>Statistical Analysis and Reporting</li>
     </ul>
   </section>
@@ -82,25 +108,22 @@
     <h2 class="text-2xl font-semibold mb-4">Certificates</h2>
     <div class="bg-white p-6 rounded-lg shadow-lg">
       <ul class="space-y-4">
-        <!-- Certificate 1 -->
         <li>
           <div class="flex justify-between items-center">
             <span>Data Analytics and Visualization Certificate</span>
-            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_Sm5yaiakPR9WGm7cb_1726321482568_completion_certificate.pdf" download>Download</a>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_Sm5yaiakPR9WGm7cb_1726321482568_completion_certificate.pdf" download class="text-indigo-600 hover:underline">Download</a>
           </div>
         </li>
-        <!-- Certificate 2 -->
         <li>
           <div class="flex justify-between items-center">
             <span>Python Certificate</span>
-            <a href="https://www.hackerrank.com/certificates/4812fa5f4af0" class="text-indigo-600 hover:underline" download>Download</a>
+            <a href="https://www.hackerrank.com/certificates/4812fa5f4af0" class="text-indigo-600 hover:underline">Download</a>
           </div>
         </li>
-        <!-- Certificate 3 -->
         <li>
           <div class="flex justify-between items-center">
             <span>SQL for Data Analysis Certificate</span>
-            <a href="courses.cognitiveclass.ai/certificates/a0f17fd0a8824a79b2f911b17dff05e8" class="text-indigo-600 hover:underline" download>Download</a>
+            <a href="courses.cognitiveclass.ai/certificates/a0f17fd0a8824a79b2f911b17dff05e8" class="text-indigo-600 hover:underline">Download</a>
           </div>
         </li>
       </ul>
@@ -131,13 +154,11 @@
   <!-- Contact Section -->
   <section id="contact" class="container mx-auto mt-8 px-4 relative">
     <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
-    
-    <!-- LinkedIn & HackerRank Links -->
     <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
       <h3 class="text-xl font-semibold mb-4">Connect with me</h3>
       <ul class="space-y-4">
         <li>
-          <a href="http://www.linkedin.com/in/sunit-kumar-sahoo-113b0325b " target="_blank" class="text-indigo-600 hover:underline">LinkedIn Profile</a>
+          <a href="http://www.linkedin.com/in/sunit-kumar-sahoo-113b0325b" target="_blank" class="text-indigo-600 hover:underline">LinkedIn Profile</a>
         </li>
         <li>
           <a href="https://www.hackerrank.com/profile/sunitkumarsahoo1" target="_blank" class="text-indigo-600 hover:underline">HackerRank Profile</a>
@@ -145,7 +166,6 @@
       </ul>
     </div>
 
-    <!-- Contact Form -->
     <div class="w-full md:w-2/3 lg:w-1/2 mx-auto bg-white shadow-lg p-6 rounded-lg relative">
       <form id="contactForm">
         <div class="mb-4">
@@ -165,53 +185,46 @@
     </div>
   </section>
 
-
- <!-- Footer Section -->
-<footer class="bg-gray-800 text-white py-8">
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
     <div class="container mx-auto text-center">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <!-- About Section -->
-            <div>
-                <h3 class="text-xl font-semibold mb-4">About</h3>
-                <p class="text-gray-300">I am a recent graduate with a passion for data analytics. I enjoy working with data to uncover insights and drive decisions.</p>
-            </div>
-            <!-- Skills Section -->
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Skills</h3>
-                <ul class="text-gray-300">
-                    <li>Data Analysis</li>
-                    <li>Data Visualization</li>
-                    <li>Tableau</li>
-                    <li>Python<li>
-                        <li>SQL<li>
-                    <li>Excel</li>
-                </ul>
-            </div>
-            <!-- Projects Section -->
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Projects</h3>
-                <ul class="text-gray-300">
-                    <li>Project 1 - Coffee Shop Sales Analysis</li>
-                    <li>Project 2 - Sales,Customer Segmentation and Market Analysis</li>
-                    <li>Project 3 - Tableau Sales Visualization</li>
-                </ul>
-            </div>
-            <!-- Contact Section -->
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Contact</h3>
-                <p class="text-gray-300">Reach out to me for any opportunities.</p>
-                <a href="mailto:your.email@example.com" class="text-blue-400 hover:underline">Email Me</a>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">About</h3>
+          <p class="text-gray-300">I am a recent graduate with a passion for data analytics. I enjoy working with data to uncover insights and drive decisions.</p>
         </div>
-
-        <div class="mb-4">
-            <a href="http://www.linkedin.com/in/sunit-kumar-sahoo-113b0325b " class="text-gray-300 hover:text-white mx-2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/your-username" class="text-gray-300 hover:text-white mx-2" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.hackerrank.com/profile/sunitkumarsahoo1" class="text-gray-300 hover:text-white mx-2" target="_blank" rel="noopener noreferrer">HackerRank</a>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Skills</h3>
+          <ul class="text-gray-300">
+            <li>Data Analysis</li>
+            <li>Data Visualization</li>
+            <li>Tableau</li>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Excel</li>
+          </ul>
         </div>
-        <p>&copy; 2024 [sunit kumar sahoo]. All rights reserved.</p>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Projects</h3>
+          <ul class="text-gray-300">
+            <li>Coffee Shop Sales Analysis</li>
+            <li>Customer Segmentation</li>
+            <li>Tableau Sales Visualization</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300">Reach out for any opportunities.</p>
+          <a href="mailto:your.email@example.com" class="text-blue-400 hover:underline">Email Me</a>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="http://www.linkedin.com/in/sunit-kumar-sahoo-113b0325b" class="text-gray-300 hover:text-white mx-2" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/your-username" class="text-gray-300 hover:text-white mx-2" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.hackerrank.com/profile/sunitkumarsahoo1" class="text-gray-300 hover:text-white mx-2" target="_blank" rel="noopener noreferrer">HackerRank</a>
+      </div>
+      <p>&copy; 2024 Sunit Kumar Sahoo. All rights reserved.</p>
     </div>
-</footer>
-
-
-  
+  </footer>
+</body>
+</html>
